@@ -7,6 +7,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
 </head>
 
 <body>
@@ -23,16 +24,17 @@
             <div class="form-group">
                 <label for="inputPrioridade">Prioridade:</label>
                 <select class="form-control" id="inputPrioridade">
-                    <option value="1">1 - Menos importante</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
+                    <option value="">---Selecione uma opção---</option>
+                    <option value="10">10</option>
                     <option value="9">9</option>
-                    <option value="10">10 - Mais importante</option>
+                    <option value="8">8</option>
+                    <option value="7">7</option>
+                    <option value="6">6</option>
+                    <option value="5">5</option>
+                    <option value="4">4</option>
+                    <option value="3">3</option>
+                    <option value="2">2</option>
+                    <option value="1">1</option>
                 </select>
             </div>
             <button type="submit" class="btn btn-primary">Adicionar Tarefa</button>
@@ -44,46 +46,4 @@
 
     </div>
 
-    <script>
-
-        let tarefas = [];
-
-
-        function adicionarTarefa(event) {
-            event.preventDefault();
-
-            let tarefa = document.getElementById("inputTarefa").value;
-            let prioridade = document.getElementById("inputPrioridade").value;
-            let objTarefa = { tarefa: tarefa, prioridade: prioridade };
-
-            tarefas.push(objTarefa);
-
-            document.getElementById("inputTarefa").value = "";
-            document.getElementById("inputPrioridade").value = "1";
-
-            atualizarListaTarefas();
-        }
-
-        function atualizarListaTarefas() {
-
-            tarefas.sort(function (a, b) {
-                return b.prioridade - a.prioridade;
-            });
-
-            $("#listaTarefas").empty();
-
-            for (let i = 0; i < tarefas.length; i++) {
-                let card = '<div class="card">';
-                card += '<div class="card-body">';
-                card += '<h5 class="card-title">' + tarefas[i].tarefa + '</h5>';
-                card += '<p class="card-text">Prioridade: ' + tarefas[i].prioridade + '</p>';
-                card += '</div>';
-                card += '</div>';
-
-                $("#listaTarefas").append(card);
-            }
-        }
-
-        $("#formTarefa").submit(adicionarTarefa);
-
-    </script>
+<script src="script.js"></script>
