@@ -27,7 +27,7 @@ def get_user_input():
             get_user_input.result = file_path, output_file
             window.destroy()
         else:
-            messagebox.showwarning('Incomplete Input', 'Please provide all inputs.')
+            messagebox.showwarning('Incomplete Input', 'Please provide all inputs.'
 
     def browse_file():
         file_path = filedialog.askopenfilename(filetypes=[("Excel files", "*.xlsx")])
